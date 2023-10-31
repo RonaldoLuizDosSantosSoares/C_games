@@ -1,0 +1,45 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main() {
+    int numeroAleatorio, tentativa, tentativasRestantes;
+    char continuar;
+    srand(time(NULL));
+
+    do {
+        numeroAleatorio = rand() % 11;
+        tentativasRestantes = 3;
+
+        printf("Bem-vindo ao jogo de adivinhação! Tente adivinhar o número entre 0 e 10.\n");
+
+        while (tentativasRestantes > 0) {
+            printf("Tentativas restantes: %d\n", tentativasRestantes);
+            printf("Digite o seu chute: ");
+            scanf("%d", &tentativa);
+
+            if (tentativa == numeroAleatorio) {
+                printf("Parabéns! Você acertou o número!\n");
+                break;
+            } else if (tentativa < numeroAleatorio) {
+                printf("Tente um número maior.\n");
+            } else {
+                printf("Tente um número menor.\n");
+            }
+
+            tentativasRestantes--;
+        }
+
+        if (tentativasRestantes == 0) {
+            printf("Suas tentativas acabaram. O número era %d.\n", numeroAleatorio);
+        }
+
+        printf("Deseja jogar novamente? (S/n): ");
+        scanf(" %c", &continuar);
+
+    } while (continuar == 'S' || continuar == 's');
+
+    printf("Obrigado por jogar!\n");
+
+    return 0;
+}
