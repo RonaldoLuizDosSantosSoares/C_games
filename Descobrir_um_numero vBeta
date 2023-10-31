@@ -6,7 +6,6 @@ int main() {
     int numeroAleatorio, tentativa, tentativasRestantes;
     char continuar;
     srand(time(NULL));
-
     do {
         numeroAleatorio = rand() % 11;
         tentativasRestantes = 3;
